@@ -7,15 +7,16 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
-class CommentsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comments
-        fields = '__all__'
 
 class ProductsSerializers(serializers.ModelSerializer):
     category = CategorySerializer()
-    comment = CommentsSerializer()
 
     class Meta:
         model = Products
+        fields = '__all__'
+
+class CommentsSerializer(serializers.ModelSerializer):
+    # product = ProductsSerializers()
+    class Meta:
+        model = Comments
         fields = '__all__'
